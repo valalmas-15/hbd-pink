@@ -165,13 +165,28 @@ export default function App() {
       audioRef.current.muted = isMuted;
       if (!isMuted) {
         audioRef.current.volume = 0.5;
-        audioRef.current.play().catch(() => {
-          // Silent catch for auto-play restrictions
-        });
+        audioRef.current.play().catch(() => {});
       } else {
         audioRef.current.pause();
       }
     }
+  }, [isMuted]);
+
+  // Global trigger for audio on first interaction
+  useEffect(() => {
+    const handleFirstInteraction = () => {
+      if (audioRef.current && isMuted === false) {
+        audioRef.current.play().catch(() => {});
+        window.removeEventListener("click", handleFirstInteraction);
+        window.removeEventListener("touchstart", handleFirstInteraction);
+      }
+    };
+    window.addEventListener("click", handleFirstInteraction);
+    window.addEventListener("touchstart", handleFirstInteraction);
+    return () => {
+      window.removeEventListener("click", handleFirstInteraction);
+      window.removeEventListener("touchstart", handleFirstInteraction);
+    };
   }, [isMuted]);
 
   useEffect(() => {
@@ -372,7 +387,7 @@ export default function App() {
             </AnimatePresence>
             </div>
 
-            <div className="relative z-10 w-full max-w-[650px] aspect-[4/3] perspective-2000 flex items-center justify-center touch-none">
+            <div className="relative z-10 w-[95vw] max-w-[650px] aspect-[4/3] perspective-2000 flex items-center justify-center touch-none scale-[0.8] md:scale-100 transition-transform origin-center">
               <motion.div
                 className="relative w-full h-full flex preserve-3d"
                 animate={{ x: getContainerX() }}
