@@ -129,7 +129,7 @@ const Leaf = ({ index, isFlipped, children, totalLeaves }) => {
 export default function App() {
   const [phase, setPhase] = useState("intro");
   const [sequenceIndex, setSequenceIndex] = useState(0);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
   const [flippedLeaves, setFlippedLeaves] = useState(0);
   const audioRef = useRef(null);
 
@@ -332,8 +332,9 @@ export default function App() {
           >
             <div className="z-30 mb-8 max-w-sm w-full min-h-[70px] flex items-center justify-center text-center px-2">
               <AnimatePresence mode="wait">
-                <motion.div
-                  key={flippedLeaves}
+                {flippedLeaves < 3 && (
+                  <motion.div
+                    key={flippedLeaves}
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -15 }}
@@ -347,7 +348,8 @@ export default function App() {
                     "{bookMessages[flippedLeaves]}"
                   </p>
                 </motion.div>
-              </AnimatePresence>
+              )}
+            </AnimatePresence>
             </div>
 
             <div className="relative z-10 w-full max-w-[650px] aspect-[4/3] perspective-2000 flex items-center justify-center touch-none">
@@ -524,6 +526,7 @@ export default function App() {
         ref={audioRef} 
         src="/song.mp3" 
         loop 
+        muted={isMuted}
       />
     </div>
   );
