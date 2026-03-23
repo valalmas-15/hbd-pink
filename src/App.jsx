@@ -540,7 +540,7 @@ export default function App() {
                   {name}
                 </h2>
                 <p className="text-pink-300 text-[min(2vw,2vh)] mt-4 font-mono tracking-[0.5em] font-bold uppercase opacity-80">
-                  Always & Forever
+                  CANTIKKK!!!
                 </p>
               </motion.div>
             </div>
