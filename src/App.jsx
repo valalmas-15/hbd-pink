@@ -267,22 +267,22 @@ export default function App() {
           <motion.div
             key="intro"
             exit={{ opacity: 0, scale: 0.9 }}
-            className="z-10 text-center px-6"
+            className="z-10 text-center px-6 scale-[min(1,40vh/300)] origin-center"
           >
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              className="mb-8 p-1 bg-gradient-to-tr from-pink-500 to-purple-600 rounded-3xl shadow-[0_0_40px_rgba(236,72,153,0.3)]"
+              className="mb-6 p-1 bg-gradient-to-tr from-pink-500 to-purple-600 rounded-3xl shadow-[0_0_40px_rgba(236,72,153,0.3)] w-[300px] md:w-[350px]"
             >
-              <div className="bg-black/80 backdrop-blur-md rounded-[22px] p-8 flex flex-col items-center border border-white/10">
+              <div className="bg-black/80 backdrop-blur-xl rounded-[22px] p-6 md:p-8 flex flex-col items-center">
                 <Sparkles
                   size={44}
                   className="text-yellow-400 mb-4 animate-pulse"
                 />
-                <h1 className="text-2xl font-black tracking-[0.2em] uppercase mb-2">
+                <h1 className="text-xl md:text-2xl font-black tracking-[0.2em] uppercase mb-2">
                   HBD ACAA
                 </h1>
-                <p className="text-pink-400 text-xs font-mono uppercase tracking-widest">
+                <p className="text-pink-400 text-[10px] font-mono uppercase tracking-widest">
                   Let's Open Your BDay Present
                 </p>
               </div>
@@ -297,7 +297,7 @@ export default function App() {
                   audioRef.current.play().catch(() => {});
                 }
               }}
-              className="bg-pink-600 text-white px-10 py-4 rounded-full font-bold text-lg shadow-[0_0_20px_rgba(236,72,153,0.5)] transition-all uppercase tracking-widest cursor-pointer"
+              className="bg-pink-600 text-white px-8 py-3 rounded-full font-bold text-base shadow-[0_0_20px_rgba(236,72,153,0.5)] transition-all uppercase tracking-widest cursor-pointer"
             >
               Open 🎁
             </motion.button>
@@ -316,7 +316,7 @@ export default function App() {
                 initial={{ scale: 0.2, opacity: 0, rotate: -10 }}
                 animate={{ scale: 1.2, opacity: 1, rotate: 0 }}
                 exit={{ scale: 2.5, opacity: 0, rotate: 10 }}
-                className={`font-black text-7xl md:text-[10rem] drop-shadow-[0_0_30px_rgba(255,20,147,0.4)] text-pink-500`}
+                className={`font-black text-[min(15vw,15vh)] md:text-[min(20vw,20vh)] drop-shadow-[0_0_30px_rgba(255,20,147,0.4)] text-pink-500 uppercase tracking-tighter`}
               >
                 {surpriseSequence[sequenceIndex]}
               </motion.div>
@@ -345,14 +345,14 @@ export default function App() {
             className="z-10 text-center"
           >
             <motion.div
-              initial={{ y: 100, opacity: 0 }}
+              initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ type: "spring" }}
-              className="text-[10rem] md:text-[12rem] mb-4 filter drop-shadow-2xl"
+              className="text-[min(25vw,25vh)] mb-4 filter drop-shadow-2xl"
             >
               🐱
             </motion.div>
-            <div className="bg-white text-pink-600 px-8 py-3 rounded-2xl font-black text-3xl shadow-2xl">
+            <div className="bg-white text-pink-600 px-6 py-2 md:px-8 md:py-3 rounded-2xl font-black text-xl md:text-3xl shadow-2xl">
               SURPRISE!!
             </div>
           </motion.div>
@@ -503,9 +503,9 @@ export default function App() {
             key="collage"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="relative w-full h-full flex items-center justify-center"
+            className="relative w-full h-full flex items-center justify-center p-4 flex-1"
           >
-            <div className="relative w-full h-full flex items-center justify-center">
+            <div className="relative w-full h-full flex items-center justify-center scale-[min(0.8,0.35*vh/100)] md:scale-100 flex-1 min-h-0">
               {collagePhotos.map((p, i) => (
                 <motion.div
                   key={p.id}
