@@ -154,10 +154,10 @@ export default function App() {
 
   // Daftar foto utama dari assets untuk kolase akhir
   const finalPhotos = [
-    "/src/assets/2.jpg",
-    "/src/assets/3.jpg",
-    "/src/assets/4.jpg",
-    "/src/assets/5.jpg",
+    "/2.jpg",
+    "/3.jpg",
+    "/4.jpg",
+    "/5.jpg",
   ];
 
   useEffect(() => {
@@ -391,7 +391,7 @@ export default function App() {
 
                   <Leaf index={3} isFlipped={flippedLeaves > 2} totalLeaves={3}>
                     <img
-                      src="/src/assets/5.jpg"
+                      src="/5.jpg"
                       className="w-full h-full object-cover rounded"
                       alt="Memori 5"
                     />
@@ -412,12 +412,12 @@ export default function App() {
 
                   <Leaf index={2} isFlipped={flippedLeaves > 1} totalLeaves={3}>
                     <img
-                      src="/src/assets/3.jpg"
+                      src="/3.jpg"
                       className="w-full h-full object-cover rounded"
                       alt="Memori 3"
                     />
                     <img
-                      src="/src/assets/4.jpg"
+                      src="/4.jpg"
                       className="w-full h-full object-cover rounded"
                       alt="Memori 4"
                     />
@@ -426,11 +426,11 @@ export default function App() {
                   <Leaf index={1} isFlipped={flippedLeaves > 0} totalLeaves={3}>
                     <NotebookCover
                       onClick={() => setFlippedLeaves(1)}
-                      photoUrl="/src/assets/1.jpg"
+                      photoUrl="/1.jpg"
                       name={name}
                     />
                     <img
-                      src="/src/assets/2.jpg"
+                      src="/2.jpg"
                       className="w-full h-full object-cover rounded"
                       alt="Memori 2"
                     />
@@ -522,7 +522,7 @@ export default function App() {
 
       <audio 
         ref={audioRef} 
-        src="/src/assets/song.mp3" 
+        src="/song.mp3" 
         loop 
       />
     </div>
