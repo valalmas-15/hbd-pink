@@ -129,7 +129,7 @@ const Leaf = ({ index, isFlipped, children, totalLeaves }) => {
 export default function App() {
   const [phase, setPhase] = useState("intro");
   const [sequenceIndex, setSequenceIndex] = useState(0);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
   const [flippedLeaves, setFlippedLeaves] = useState(0);
   const audioRef = useRef(null);
 
@@ -162,9 +162,12 @@ export default function App() {
 
   useEffect(() => {
     if (audioRef.current) {
+      audioRef.current.muted = isMuted;
       if (!isMuted) {
         audioRef.current.volume = 0.5;
-        audioRef.current.play().catch((e) => console.log("Audio play failed:", e));
+        audioRef.current.play().catch(() => {
+          // Silent catch for auto-play restrictions
+        });
       } else {
         audioRef.current.pause();
       }
@@ -275,6 +278,9 @@ export default function App() {
               onClick={() => {
                 setPhase("sequence");
                 setIsMuted(false);
+                if (audioRef.current) {
+                  audioRef.current.play().catch(() => {});
+                }
               }}
               className="bg-pink-600 text-white px-10 py-4 rounded-full font-bold text-lg shadow-[0_0_20px_rgba(236,72,153,0.5)] transition-all uppercase tracking-widest cursor-pointer"
             >
@@ -540,7 +546,8 @@ export default function App() {
         ref={audioRef} 
         src="/song.mp3" 
         loop 
-        autoPlay={false}
+        autoPlay
+        muted={isMuted}
       />
     </div>
   );
