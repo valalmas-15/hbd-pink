@@ -363,31 +363,31 @@ export default function App() {
             key="reveal"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="relative w-full h-full flex flex-col items-center justify-center p-4"
+            className="relative w-full h-full flex flex-col items-center justify-center p-0 flex-1 min-h-0"
           >
-            <div className="z-30 mb-8 max-w-sm w-full min-h-[70px] flex items-center justify-center text-center px-2">
+            <div className="z-30 mb-2 max-w-sm w-full min-h-[60px] flex items-center justify-center text-center px-2">
               <AnimatePresence mode="wait">
                 {flippedLeaves < 3 && (
                   <motion.div
                     key={flippedLeaves}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  className="bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-2xl border-t-4 border-pink-500 relative w-full"
-                >
-                  <Mail
-                    className="absolute -top-3 -right-3 text-pink-500 bg-white rounded-full p-1 shadow-md"
-                    size={24}
-                  />
-                  <p className="text-gray-800 font-serif italic text-sm md:text-base leading-snug">
-                    "{bookMessages[flippedLeaves]}"
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="bg-white/95 backdrop-blur-sm p-3 rounded-xl shadow-2xl border-t-4 border-pink-500 relative w-full"
+                  >
+                    <Mail
+                      className="absolute -top-3 -right-3 text-pink-500 bg-white rounded-full p-1 shadow-md"
+                      size={20}
+                    />
+                    <p className="text-gray-800 font-serif italic text-xs md:text-sm leading-snug">
+                      "{bookMessages[flippedLeaves]}"
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
-            <div className="relative z-10 w-[95vw] max-w-[650px] aspect-[4/3] perspective-2000 flex items-center justify-center touch-none scale-[0.8] md:scale-100 transition-transform origin-center">
+            <div className="relative z-10 w-[min(90vw,75vh)] max-w-[650px] aspect-[4/3] perspective-2000 flex items-center justify-center touch-none transition-all origin-center">
               <motion.div
                 className="relative w-full h-full flex preserve-3d"
                 animate={{ x: getContainerX() }}
@@ -476,19 +476,19 @@ export default function App() {
               </motion.div>
             </div>
 
-            <div className="mt-12 flex flex-col items-center gap-4">
+            <div className="mt-4 flex flex-col items-center gap-2">
               <div className="flex gap-2">
                 {[0, 1, 2, 3].map((i) => (
                   <motion.div
                     key={i}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${flippedLeaves === i ? "w-8 bg-pink-500" : "w-2 bg-white/20"}`}
+                    className={`h-1 rounded-full transition-all duration-300 ${flippedLeaves === i ? "w-6 bg-pink-500" : "w-2 bg-white/20"}`}
                   />
                 ))}
               </div>
               <motion.p
-                animate={{ y: [0, 5, 0], opacity: [0.3, 0.6, 0.3] }}
+                animate={{ y: [0, 3, 0], opacity: [0.3, 0.6, 0.3] }}
                 transition={{ repeat: Infinity, duration: 2 }}
-                className="text-[10px] font-mono text-pink-300 uppercase tracking-widest font-bold"
+                className="text-[9px] font-mono text-pink-300 uppercase tracking-widest font-bold"
               >
                 {flippedLeaves === 3
                   ? "Swipe left to see our love heart"
@@ -540,7 +540,7 @@ export default function App() {
                   {name}
                 </h2>
                 <p className="text-pink-300 text-[10px] mt-4 font-mono tracking-[0.5em] font-bold uppercase">
-                  Always & Forever
+                  CANTIKK!!
                 </p>
               </motion.div>
             </div>
