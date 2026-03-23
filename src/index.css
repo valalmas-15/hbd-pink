@@ -1,5 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --font-inter: "Inter", system-ui, -apple-system, sans-serif;
+  --color-brand-cyan: #60e3ff;
+  --color-brand-pink: #ff60a5;
+}
+
 :root {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-inter);
   line-height: 1.5;
   font-weight: 400;
 
@@ -25,56 +33,18 @@ body {
 }
 
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
   width: 100%;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-  background: linear-gradient(135deg, #60e3ff, #ff60a5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
-button {
-  border-radius: 12px;
-  border: 1px solid transparent;
-  padding: 0.8em 1.6em;
-  font-size: 1em;
-  font-weight: 600;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+.preserve-3d {
+  transform-style: preserve-3d;
 }
 
-button:hover {
-  border-color: #646cff;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(100, 108, 255, 0.3);
-}
-
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  body {
-    background: radial-gradient(circle at top right, #f0f4ff 0%, #ffffff 100%);
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.perspective-2000 {
+  perspective: 2000px;
 }
