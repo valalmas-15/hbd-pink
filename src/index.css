@@ -49,64 +49,50 @@ body {
   perspective: 2000px;
 }
 
-/* Orientation Lock for Mobile */
+/* Global Orientation Lock */
 .portrait-lock {
   display: none;
   position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.95);
-  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black !important;
+  z-index: 99999;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 2rem;
-  backdrop-filter: blur(10px);
 }
 
-@media (max-width: 1024px) and (orientation: portrait) {
+@media (orientation: portrait) {
   .portrait-lock {
-    display: flex;
-  }
-  
-  /* Hide main content to avoid loading issues in portrait */
-  #root > div:not(.portrait-lock) {
-    display: none !important;
+    display: flex !important;
   }
 }
 
 .rotate-icon {
-  width: 50px;
-  height: 90px;
-  margin-bottom: 2.5rem;
-  border: 4px solid #ec4899;
-  border-radius: 8px;
+  width: 40px;
+  height: 70px;
+  margin-bottom: 2rem;
+  border: 3px solid #ec4899;
+  border-radius: 6px;
   position: relative;
-  animation: rotateDevice 2.5s ease-in-out infinite;
-  box-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
+  animation: rotateDevice 2s ease-in-out infinite;
+  box-shadow: 0 0 30px rgba(236, 72, 153, 0.5);
 }
 
 .rotate-icon::after {
   content: '';
   position: absolute;
-  bottom: 6px;
+  bottom: 4px;
   left: 50%;
   transform: translateX(-50%);
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border: 2px solid #ec4899;
   border-radius: 50%;
-}
-
-.rotate-icon::before {
-  content: '↻';
-  position: absolute;
-  top: -40px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #ec4899;
-  font-size: 30px;
-  font-weight: bold;
 }
 
 @keyframes rotateDevice {
