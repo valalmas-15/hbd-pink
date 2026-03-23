@@ -279,10 +279,10 @@ export default function App() {
                   size={44}
                   className="text-yellow-400 mb-4 animate-pulse"
                 />
-                <h1 className="text-xl md:text-2xl font-black tracking-[0.2em] uppercase mb-2">
+                <h1 className="text-[min(8vw,8vh)] font-black tracking-[0.2em] uppercase mb-1 leading-tight">
                   HBD ACAA
                 </h1>
-                <p className="text-pink-400 text-[10px] font-mono uppercase tracking-widest">
+                <p className="text-pink-400 text-[min(2.5vw,2.5vh)] font-mono uppercase tracking-[0.3em] opacity-80">
                   Let's Open Your BDay Present
                 </p>
               </div>
@@ -297,7 +297,7 @@ export default function App() {
                   audioRef.current.play().catch(() => {});
                 }
               }}
-              className="bg-pink-600 text-white px-8 py-3 rounded-full font-bold text-base shadow-[0_0_20px_rgba(236,72,153,0.5)] transition-all uppercase tracking-widest cursor-pointer"
+              className="bg-pink-600 text-white px-[min(8vw,8vh)] py-[min(3vw,3vh)] rounded-full font-bold text-[min(4vw,4vh)] shadow-[0_0_20px_rgba(236,72,153,0.5)] transition-all uppercase tracking-widest cursor-pointer mt-4"
             >
               Open 🎁
             </motion.button>
@@ -316,7 +316,7 @@ export default function App() {
                 initial={{ scale: 0.2, opacity: 0, rotate: -10 }}
                 animate={{ scale: 1.2, opacity: 1, rotate: 0 }}
                 exit={{ scale: 2.5, opacity: 0, rotate: 10 }}
-                className={`font-black text-[min(15vw,15vh)] md:text-[min(20vw,20vh)] drop-shadow-[0_0_30px_rgba(255,20,147,0.4)] text-pink-500 uppercase tracking-tighter`}
+                className={`font-black text-[min(18vw,18vh)] drop-shadow-[0_0_40px_rgba(255,20,147,0.5)] text-pink-500 uppercase tracking-tighter leading-none`}
               >
                 {surpriseSequence[sequenceIndex]}
               </motion.div>
@@ -348,11 +348,11 @@ export default function App() {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ type: "spring" }}
-              className="text-[min(25vw,25vh)] mb-4 filter drop-shadow-2xl"
+              className="text-[min(25vw,25vh)] mb-2 filter drop-shadow-2xl"
             >
               🐱
             </motion.div>
-            <div className="bg-white text-pink-600 px-6 py-2 md:px-8 md:py-3 rounded-2xl font-black text-xl md:text-3xl shadow-2xl">
+            <div className="bg-white text-pink-600 px-[min(6vw,6vh)] py-[min(2vw,2vh)] rounded-2xl font-black text-[min(6vw,6vh)] shadow-2xl uppercase tracking-widest">
               SURPRISE!!
             </div>
           </motion.div>
@@ -376,10 +376,10 @@ export default function App() {
                     className="bg-white/95 backdrop-blur-sm p-3 rounded-xl shadow-2xl border-t-4 border-pink-500 relative w-full"
                   >
                     <Mail
-                      className="absolute -top-3 -right-3 text-pink-500 bg-white rounded-full p-1 shadow-md"
-                      size={20}
+                      className="absolute -top-3 -right-3 text-pink-500 bg-white rounded-full p-1 shadow-md scale-[min(1,5vh/40px)]"
+                      size={24}
                     />
-                    <p className="text-gray-800 font-serif italic text-xs md:text-sm leading-snug">
+                    <p className="text-gray-800 font-serif italic text-[min(3.5vw,3.5vh)] leading-snug px-2">
                       "{bookMessages[flippedLeaves]}"
                     </p>
                   </motion.div>
@@ -407,7 +407,7 @@ export default function App() {
                     transition={{ duration: 0.4 }}
                     className="w-1/2 h-full bg-black rounded-l-lg border-r border-gray-800 flex items-center justify-center p-2 overflow-hidden z-0"
                   >
-                    <div className="text-pink-500 font-mono text-[10px] opacity-20">
+                    <div className="text-pink-500 font-mono text-[min(2.5vw,2.5vh)] opacity-20">
                       MEMORIES
                     </div>
                   </motion.div>
@@ -421,7 +421,7 @@ export default function App() {
                     transition={{ duration: 0.4 }}
                     className="w-1/2 h-full bg-black rounded-r-lg p-2 flex items-center justify-center border-l border-gray-800 overflow-hidden relative z-0"
                   >
-                    <div className="text-pink-500 font-mono text-[10px] opacity-20">
+                    <div className="text-pink-500 font-mono text-[min(2.5vw,2.5vh)] opacity-20">
                       LOVE U FOREVER
                     </div>
                   </motion.div>
@@ -438,10 +438,10 @@ export default function App() {
                         size={50}
                         className="text-white fill-current mb-4 animate-pulse z-10"
                       />
-                      <h3 className="text-white font-black text-xl tracking-[0.3em] uppercase z-10">
+                      <h3 className="text-white font-black text-[min(5vw,5vh)] tracking-[0.3em] uppercase z-10">
                         LOVE U FOREVER
                       </h3>
-                      <p className="text-white/40 text-[10px] mt-6 italic z-10">
+                      <p className="text-white/40 text-[min(2.5vw,2.5vh)] mt-6 italic z-10">
                         Swipe left to See Collage
                       </p>
                     </div>
@@ -488,7 +488,7 @@ export default function App() {
               <motion.p
                 animate={{ y: [0, 3, 0], opacity: [0.3, 0.6, 0.3] }}
                 transition={{ repeat: Infinity, duration: 2 }}
-                className="text-[9px] font-mono text-pink-300 uppercase tracking-widest font-bold"
+                className="text-[min(2vw,2vh)] font-mono text-pink-300 uppercase tracking-widest font-bold"
               >
                 {flippedLeaves === 3
                   ? "Swipe left to see our love heart"
@@ -503,9 +503,9 @@ export default function App() {
             key="collage"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="relative w-full h-full flex items-center justify-center p-4 flex-1"
+            className="relative w-full h-full flex items-center justify-center p-4 flex-1 overflow-hidden"
           >
-            <div className="relative w-full h-full flex items-center justify-center scale-[min(0.8,0.35*vh/100)] md:scale-100 flex-1 min-h-0">
+            <div className="relative w-full h-full flex items-center justify-center scale-[min(0.9,70vh/550px)] md:scale-100 flex-1 min-h-0">
               {collagePhotos.map((p, i) => (
                 <motion.div
                   key={p.id}
@@ -532,15 +532,15 @@ export default function App() {
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 1.5, type: "spring" }}
-                className="z-50 text-center bg-black/60 backdrop-blur-xl p-10 md:p-14 rounded-full border border-pink-500/40 shadow-[0_0_80px_rgba(236,72,153,0.5)]"
+                className="z-50 text-center bg-black/70 backdrop-blur-xl p-[min(8vw,8vh)] rounded-full border border-pink-500/40 shadow-[0_0_80px_rgba(236,72,153,0.5)]"
               >
-                <h2 className="text-3xl md:text-5xl font-black text-pink-500 uppercase tracking-tighter leading-none drop-shadow-[0_0_20px_rgba(236,72,153,0.4)]">
+                <h2 className="text-[min(7vw,7vh)] font-black text-pink-500 uppercase tracking-tighter leading-none drop-shadow-[0_0_30px_rgba(236,72,153,0.5)]">
                   Happy Birthday
                   <br />
                   {name}
                 </h2>
-                <p className="text-pink-300 text-[10px] mt-4 font-mono tracking-[0.5em] font-bold uppercase">
-                  CANTIKK!!
+                <p className="text-pink-300 text-[min(2vw,2vh)] mt-4 font-mono tracking-[0.5em] font-bold uppercase opacity-80">
+                  Always & Forever
                 </p>
               </motion.div>
             </div>
