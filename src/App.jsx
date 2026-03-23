@@ -129,7 +129,7 @@ const Leaf = ({ index, isFlipped, children, totalLeaves }) => {
 export default function App() {
   const [phase, setPhase] = useState("intro");
   const [sequenceIndex, setSequenceIndex] = useState(0);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const [flippedLeaves, setFlippedLeaves] = useState(0);
   const audioRef = useRef(null);
 
@@ -163,12 +163,20 @@ export default function App() {
   useEffect(() => {
     if (audioRef.current) {
       if (!isMuted) {
+        audioRef.current.volume = 0.5;
         audioRef.current.play().catch((e) => console.log("Audio play failed:", e));
       } else {
         audioRef.current.pause();
       }
     }
   }, [isMuted]);
+
+  useEffect(() => {
+    if (phase === "sequence" && audioRef.current) {
+      setIsMuted(false);
+      audioRef.current.play().catch((e) => console.log("Audio trigger failed:", e));
+    }
+  }, [phase]);
 
   useEffect(() => {
     if (phase === "sequence") {
@@ -228,6 +236,12 @@ export default function App() {
 
   return (
     <div className="min-h-screen text-white font-sans overflow-hidden bg-black select-none flex flex-col items-center justify-center w-full">
+      <div className="portrait-lock">
+        <div className="rotate-icon" />
+        <h2 className="text-pink-500 font-black text-2xl uppercase tracking-widest mb-2 font-inter">Rotate Your Device</h2>
+        <p className="text-white/60 text-sm font-mono uppercase tracking-[0.2em]">Please Use Landscape Mode</p>
+      </div>
+
       <MatrixRain />
 
       <AnimatePresence mode="wait">
@@ -526,7 +540,7 @@ export default function App() {
         ref={audioRef} 
         src="/song.mp3" 
         loop 
-        muted={isMuted}
+        autoPlay={false}
       />
     </div>
   );
